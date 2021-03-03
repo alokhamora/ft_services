@@ -1,0 +1,4 @@
+CREATE USER 'Angelina'@'%' identified by '1234';
+CREATE DATABASE wordpress;
+GRANT ALL on *.* to 'Angelina'@'%';
+FLUSH PRIVELEGES;

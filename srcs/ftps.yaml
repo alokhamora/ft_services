@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftps
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      containers:
+      - name: ftps
+        image: ftps_image
+        imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps-svc
+  labels:
+    app: ftps
+  annotations:
+    metallb.universe.tf/allow-shared-ip: ipps
+spec:
+  type: LoadBalancer
+  selector:
+    app: ftps
+  ports:
+  - port: 20
+    targetPort: 20
+    name: ftps-data
+  - port: 21
+    targetPort: 21
+    name: ftps
+  - port: 42777
+    targetPort: 42777
+    name: ftps-pasv
