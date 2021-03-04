@@ -4,3 +4,5 @@ kubectl delete service wordpress-svc
 kubectl delete service mysql-svc
 kubectl delete service phpmyadmin-svc
 kubectl delete service influxdb-svc
+kubectl delete service grafana-svc
+kubectl delete service ftps-svc

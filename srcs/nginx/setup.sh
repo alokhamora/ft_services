@@ -1,11 +1,12 @@
 nginx
 /usr/sbin/sshd
 
-sh
+telegraf &
+
 
 while true
 do
-	if pgrep nginx > /dev/null && pgrep sshd > /dev/null
+	if pgrep nginx > /dev/null && pgrep sshd > /dev/null && pgrep telegraf > /dev/null
 	then
 		echo Everything is fine ':)'
 	else

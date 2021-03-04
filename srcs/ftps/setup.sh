@@ -10,7 +10,7 @@ telegraf 2>&1 /etc/telegraf/telegraf.conf  &
 
 while true
 do
-	if pgrep vsftpd > /dev/null  && true> /dev/null 
+	if pgrep vsftpd > /dev/null  && pgrep telegraf > /dev/null 
 		then
 			echo All good
 			date
