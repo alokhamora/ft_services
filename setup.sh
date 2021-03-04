@@ -1,3 +1,5 @@
+export MINIKUBE_HOME=$HOME/goinfre/
+
 minikube start --driver=virtualbox
 minikube addons enable metallb
 
