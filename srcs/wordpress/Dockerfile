@@ -7,7 +7,6 @@ RUN mkdir -p /var/www/wordpress/ && \
 	wget http://wordpress.org/latest.tar.gz && \
 	tar -xzvf latest.tar.gz -C /var/www/ && \
 	rm latest.tar.gz 
-	#mv wordpress/* . && rmdir wordrpess
 RUN mkdir -p /etc/nginx/ssl && \
 	openssl req -keyout /etc/nginx/ssl/nginx.key -new -x509 -days 365 -out etc/nginx/ssl/nginx.crt -nodes -subj "/C=RU"
 COPY default.conf /etc/nginx/conf.d/
@@ -21,5 +20,6 @@ RUN	adduser -D -g user user && \
 RUN apk add mysql-client
 COPY setup.sh .
 RUN mkdir /run/nginx
+RUN apk add curl
 EXPOSE 5050
 ENTRYPOINT sh setup.sh

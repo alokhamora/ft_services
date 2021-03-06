@@ -1,14 +1,19 @@
 nginx
+sleep 2
 php-fpm7
 
+sleep 2
 telegraf &
 
+sleep 2
 while true
 do
-	if pgrep nginx && pgrep php-fpm7 && pgrep telegraf
+	if pgrep nginx > /dev/null && pgrep php-fpm7 > /dev/null && pgrep telegraf > /dev/null && curl --connect-timeout 15 localhost:5000 > /dev/null
 	then
+		date
 		echo Everything is good
 	else
+		ps
 		exit 1
 	fi
 	sleep 10

@@ -14,5 +14,6 @@ COPY dashboards/* /usr/share/grafana/conf/provisioning/dashboards/
 RUN mkdir /etc/telegraf/
 COPY telegraf.conf /etc/telegraf/
 COPY setup.sh .
+RUN apk add curl
 ENTRYPOINT sh setup.sh
 #CMD grafana-server -homepath /usr/share/grafana

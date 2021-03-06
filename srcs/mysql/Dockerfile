@@ -10,4 +10,5 @@ COPY setup.sh .
 RUN apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ telegraf
 RUN mkdir telegraf
 COPY telegraf.conf /etc/telegraf/
+COPY wordpress.sql .
 ENTRYPOINT sh setup.sh

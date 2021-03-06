@@ -21,5 +21,6 @@ RUN mkdir /run/nginx
 COPY default.conf /etc/nginx/conf.d/
 COPY config.inc.php /var/www/phpmyadmin/
 COPY setup.sh .
+RUN apk add curl
 EXPOSE 5000
 ENTRYPOINT sh setup.sh

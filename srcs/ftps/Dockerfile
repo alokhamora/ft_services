@@ -14,4 +14,5 @@ COPY setup.sh .
 COPY vsftpd.conf /etc/vsftpd/
 RUN mkdir /etc/telegraf
 COPY telegraf.conf /etc/telegraf/
+RUN apk add curl
 ENTRYPOINT sh setup.sh

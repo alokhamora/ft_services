@@ -16,6 +16,7 @@ RUN mkdir telegraf
 COPY telegraf.conf /etc/telegraf/
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY setup.sh .
+RUN apk add curl
 CMD sh  setup.sh
 #CMD supervisord -c /etc/supervisord.conf
 
